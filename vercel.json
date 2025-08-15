@@ -1,11 +1,13 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "public/index.php",
-            "use": "vercel-php@0.6.1"
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.1",
+            "config": {
+                "phpVersion": "8.3"
+            }
         }
-    ],
+    },
     "routes": [
         {
             "src": "/build/(.*)",
@@ -20,10 +22,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/public/index.php"
+            "dest": "/api/index.php"
         }
-    ],
-    "config": {
-        "phpVersion": "8.3"
-    }
+    ]
 }
